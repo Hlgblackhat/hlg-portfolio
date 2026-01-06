@@ -5,11 +5,18 @@ interface ProjectCardProps {
     description: string;
     tags: string[];
     color: string;
+    link?: string;
 }
 
-export default function ProjectCard({ title, description, tags, color }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, color, link }: ProjectCardProps) {
+    const Component = link ? 'a' : 'div';
+    const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
+
     return (
-        <div className="group relative bg-[#111111] border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-colors duration-500">
+        <Component
+            {...linkProps}
+            className={`group relative bg-[#111111] border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-colors duration-500 block h-full text-left ${link ? 'cursor-pointer' : ''}`}
+        >
             {/* Background Gradient Effect */}
             <div className={`absolute top-0 right-0 w-[300px] h-[300px] bg-${color}-500/10 blur-[100px] rounded-full -mr-20 -mt-20 pointer-events-none group-hover:bg-${color}-500/20 transition-colors duration-500`} />
 
@@ -19,8 +26,8 @@ export default function ProjectCard({ title, description, tags, color }: Project
                         <div className={`w-6 h-6 rounded-full bg-${color}-500/50`} />
                     </div>
                     <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <button className="text-gray-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></button>
-                        <button className="text-gray-400 hover:text-white transition-colors"><ExternalLink className="w-5 h-5" /></button>
+                        <div className="text-gray-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></div>
+                        <div className="text-gray-400 hover:text-white transition-colors"><ExternalLink className="w-5 h-5" /></div>
                     </div>
                 </div>
 
@@ -37,6 +44,6 @@ export default function ProjectCard({ title, description, tags, color }: Project
                     ))}
                 </div>
             </div>
-        </div>
+        </Component>
     );
 }

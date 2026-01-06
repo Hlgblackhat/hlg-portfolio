@@ -6,25 +6,29 @@ export default function Projects() {
             title: "ToolCare",
             description: "Plataforma para optimizar la gestión y control de mantenimientos de equipos y herramientas. Desarrollo de nuevas funcionalidades para asegurar adaptabilidad y robustez.",
             tags: ["Gestión", "Mantenimiento", "Full Stack"],
-            color: "blue"
+            color: "blue",
+            link: "https://toolcare.hlg.codes"
         },
         {
             title: "Blue Papelería Creativa",
             description: "E-Commerce optimizado para SEO y velocidad de carga. Implementación de estrategias de venta para aumentar la visibilidad y conversiones.",
             tags: ["E-Commerce", "SEO", "Web Performance"],
-            color: "purple"
+            color: "purple",
+            link: "https://www.bluecreativa.com"
         },
         {
             title: "INEDSOR Project",
             description: "Plataforma accesible y atractiva para la exposición de proyectos de robótica realizados por niños sordomudos. Enfocada en usabilidad e inclusión.",
             tags: ["Accesibilidad", "Educación", "Robótica"],
-            color: "green"
+            color: "green", 
+            link: "https://inedsor.hlg.codes"
         },
         {
             title: "HlgCodes Organization",
             description: "Organización en GitHub creada para albergar y gestionar proyectos personales, universitarios y de clientes terceros bajo una estructura profesional.",
             tags: ["Open Source", "Gestión de Proyectos", "GitHub"],
-            color: "orange"
+            color: "orange",
+            link: "https://github.com/HlgCodes"
         }
     ];
 
