@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Gitlab } from 'lucide-react';
 
 interface ProjectCardProps {
     title: string;
@@ -11,6 +11,19 @@ interface ProjectCardProps {
 export default function ProjectCard({ title, description, tags, color, link }: ProjectCardProps) {
     const Component = link ? 'a' : 'div';
     const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
+
+    // Helper to determine icon based on link URL
+    const PlatformIcon = () => {
+        if (!link) return <Github className="w-5 h-5" />;
+        const lowerLink = link.toLowerCase();
+        if (lowerLink.includes('gitlab')) return <Gitlab className="w-5 h-5" />;
+        // Note: Bitbucket icon might not be standard in all lucide versions, checking usage. 
+        // If not available, we map to Git or fallback. Assuming standard setup.
+        // Actually, let's stick to Github/Gitlab for now as requested examples, 
+        // or finding a generic 'Code' icon if unknown. 
+        // Retaining Github as default for "code" concept if generic.
+        return <Github className="w-5 h-5" />;
+    };
 
     return (
         <Component
@@ -26,7 +39,7 @@ export default function ProjectCard({ title, description, tags, color, link }: P
                         <div className={`w-6 h-6 rounded-full bg-${color}-500/50`} />
                     </div>
                     <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <div className="text-gray-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></div>
+                        <div className="text-gray-400 hover:text-white transition-colors"><PlatformIcon /></div>
                         <div className="text-gray-400 hover:text-white transition-colors"><ExternalLink className="w-5 h-5" /></div>
                     </div>
                 </div>

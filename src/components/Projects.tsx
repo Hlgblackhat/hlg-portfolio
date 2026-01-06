@@ -21,7 +21,7 @@ export default function Projects() {
             description: "Plataforma accesible y atractiva para la exposición de proyectos de robótica realizados por niños sordomudos. Enfocada en usabilidad e inclusión.",
             tags: ["Accesibilidad", "Educación", "Robótica"],
             color: "green", 
-            link: "https://inedsor.hlg.codes"
+            link: "https://gitlab.com/Hlgblackhat/website-design-workshop-1"
         },
         {
             title: "HlgCodes Organization",
