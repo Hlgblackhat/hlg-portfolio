@@ -19,7 +19,7 @@ const ChatwootWidget = () => {
     };
 
     (function (d, t) {
-      const BASE_URL = "https://app.chatwoot.com";
+      const BASE_URL = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL || "https://app.chatwoot.com";
       const g = d.createElement(t) as HTMLScriptElement;
       const s = d.getElementsByTagName(t)[0];
       g.src = BASE_URL + "/packs/js/sdk.js";
