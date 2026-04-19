@@ -28,10 +28,18 @@ const ChatwootWidget = () => {
       if (s && s.parentNode) {
         s.parentNode.insertBefore(g, s);
       }
+      const token = process.env.NEXT_PUBLIC_CHATWOOT_TOKEN;
+      const baseUrl = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL || "https://app.chatwoot.com";
+
+      if (!token) {
+        console.warn("Chatwoot token is missing. Widget will not load.");
+        return;
+      }
+
       g.onload = function () {
         window.chatwootSDK.run({
-          websiteToken: process.env.NEXT_PUBLIC_CHATWOOT_TOKEN || "PASTE_YOUR_TOKEN_HERE",
-          baseUrl: BASE_URL,
+          websiteToken: token,
+          baseUrl: baseUrl,
         });
       };
     })(document, "script");
