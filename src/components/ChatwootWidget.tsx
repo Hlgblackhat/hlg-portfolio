@@ -15,7 +15,7 @@ const ChatwootWidget = () => {
       hideMessageBubble: false,
       position: "right",
       locale: "es",
-      type: "standard",
+      type: "expanded_bubble",
     };
 
     (function (d, t) {
